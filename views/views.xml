@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <menuitem id="menu_weigh" name="weigh" sequence="10"></menuitem>
+        <!--<menuitem id="menu_tender_stock_stock" parent="menu_tender_stock" action="action_tender_stock"/>
+        <menuitem id="menu_tender_stock_classify" parent="menu_tender_stock" action="action_tender_classify"/>-->
+    </data>
+</openerp>
