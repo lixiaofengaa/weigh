@@ -2,7 +2,8 @@
 <openerp>
     <data>
         <menuitem id="menu_weigh" name="weigh" sequence="10"></menuitem>
-        <!--<menuitem id="menu_tender_stock_stock" parent="menu_tender_stock" action="action_tender_stock"/>
-        <menuitem id="menu_tender_stock_classify" parent="menu_tender_stock" action="action_tender_classify"/>-->
+        <menuitem id="menu_weigh_order_line" parent="menu_weigh" action="action_weigh_nc_order_line"/>
+        <menuitem id="menu_weigh_dispatche_vehicle" parent="menu_weigh" action="action_weigh_dispatche_vehicle"/>
+        <menuitem id="menu_weigh_sample" parent="menu_weigh" action="action_weigh_sample"/>
     </data>
 </openerp>
