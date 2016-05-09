@@ -13,7 +13,7 @@
                         <group col="2">
                             <field name="no"/>
                             <field name="dispatche_vehicle_id"/>
-                            <field name="sampler"/>
+                            <field name="sampler_id"/>
                         </group>
                     </sheet>
                     <div class="oe_chatter">
@@ -30,7 +30,7 @@
                 <tree>
                     <field name="no"/>
                     <field name="dispatche_vehicle_id"/>
-                    <field name="sampler"/>
+                    <field name="sampler_id"/>
                 </tree>
             </field>
         </record>

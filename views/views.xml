@@ -5,5 +5,14 @@
         <menuitem id="menu_weigh_order_line" parent="menu_weigh" action="action_weigh_nc_order_line"/>
         <menuitem id="menu_weigh_dispatche_vehicle" parent="menu_weigh" action="action_weigh_dispatche_vehicle"/>
         <menuitem id="menu_weigh_sample" parent="menu_weigh" action="action_weigh_sample"/>
+        <menuitem id="menu_weigh_assay" parent="menu_weigh" action="action_weigh_assay"/>
+        <menuitem id="menu_weigh_vehicle_code" parent="menu_weigh" action="action_weigh_vehicle_code"/>
+        <menuitem id="menu_weigh_vehicle_queue" parent="menu_weigh" action="action_weigh_vehicle_queue"/>
+        <menuitem id="menu_weigh_pass_gate" parent="menu_weigh" action="action_weigh_pass_gate"/>
+        <menuitem id="menu_weigh_gates" parent="menu_weigh" action="action_weigh_gates"/>
+        <menuitem id="menu_weigh_confirm_goods" parent="menu_weigh" action="action_weigh_confirm_goods"/>
+        <menuitem id="menu_weigh_weigh" parent="menu_weigh" action="action_weigh_weigh"/>
+        <menuitem id="menu_weigh_nc_storage" parent="menu_weigh" action="action_weigh_nc_storage"/>
+        <menuitem id="menu_weigh_print_bill" parent="menu_weigh" action="action_weigh_print_bill"/>
     </data>
 </openerp>

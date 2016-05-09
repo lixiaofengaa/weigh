@@ -9,3 +9,4 @@ class vehicle_code(models.Model):
     _inherit = ['mail.thread']
 
     code = fields.Char()
+    fleet_vehicle_id = fields.Many2one('fleet.vehicle')

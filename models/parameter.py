@@ -8,4 +8,5 @@ class parameter(models.Model):
     _name = 'weigh.parameter'
     _inherit = ['mail.thread']
 
+    name = fields.Char()
     template_ids = fields.Many2many('product.template')

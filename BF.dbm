@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.8.1-alpha1" last-position="405,356" last-zoom="1"
+	 default-schema="public" default-owner="postgres">
+<database name="new_database">
+</database>
+
+<schema name="public" protected="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<table name="nc_order_line">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="127.778" y="44.556"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="nc_order_no">
+		<type name="smallint"/>
+	</column>
+	<column name="consignee">
+		<type name="char"/>
+	</column>
+	<column name="consignor">
+		<type name="char"/>
+	</column>
+	<column name="place">
+		<type name="char"/>
+	</column>
+	<column name="price">
+		<type name="money"/>
+	</column>
+	<column name="num">
+		<type name="float"/>
+	</column>
+	<column name="type">
+		<type name="char"/>
+	</column>
+	<column name="nc_maker">
+		<type name="char"/>
+	</column>
+	<constraint name="dfsfsf" type="pk-constr" table="public.nc_order_line">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_project.template" index="9"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="project.template_fk" index="1"/>
+	</customidxs>
+</table>
+
+<opclass name="fdklafa" index-type="btree" default="false">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<type name="smallint"/>
+	<element type="storage">
+		<type name="smallint"/>
+	</element>
+</opclass>
+
+<table name="weigh">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1071.44" y="659.111"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.weigh">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="fleet.vehicle">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="562.44" y="180.889"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="tare">
+		<type name="float"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.&quot;fleet.vehicle&quot;">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_fleet.vehicle.model" index="2"/>
+		<object name="ID_res.partner" index="3"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="fleet.vehicle.model_fk" index="1"/>
+		<object name="res.partner_fk" index="2"/>
+	</customidxs>
+</table>
+
+<table name="assay">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="104" y="782.889"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.assay">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_sample" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="sample_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="parameter">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="155.222" y="533.667"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.parameter">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="gates">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1514.42" y="443.306"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="name">
+		<type name="char"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.gates">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="fleet.vehicle.model">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1033.44" y="140.444"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.&quot;fleet.vehicle.model&quot;">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="project.template">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="135.111" y="379.778"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.&quot;project.template&quot;">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="car_type_has_many_car" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#8658d3"
+	 src-table="public.&quot;fleet.vehicle.model&quot;"
+	 dst-table="public.&quot;fleet.vehicle&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="project.template_has_many_nc_order" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#9052ab"
+	 src-table="public.&quot;project.template&quot;"
+	 dst-table="public.nc_order_line"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="many_project.parameter_has_many_project.template" type="relnn"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#20cde0"
+	 src-table="public.parameter"
+	 dst-table="public.&quot;project.template&quot;"
+	 src-required="false" dst-required="false"
+	 table-name="many_project.parameter_has_many_project.template"/>
+
+<table name="assay_parameter">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="167" y="622.111"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="value">
+		<type name="float"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.assay_parameter">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_assay" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="assay_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="assay_has_many_assay_parameter" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#dd8688"
+	 src-table="public.assay"
+	 dst-table="public.assay_parameter"
+	 src-required="false" dst-required="false"/>
+
+<table name="pass_gate">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1062.11" y="479.111"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="in_out">
+		<type name="char"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.pass_gate">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_dispatche_vehicle" index="3"/>
+		<object name="ID_gates" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="dispatche_vehicle_fk" index="2"/>
+		<object name="gates_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="gates_has_many_pass_gate" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#c33a0d"
+	 src-table="public.gates"
+	 dst-table="public.pass_gate"
+	 src-required="false" dst-required="false">
+	<label ref-type="dst-label">
+		<position x="120.712" y="64.689"/>
+	</label>
+	<label ref-type="name-label">
+		<position x="0" y="0"/>
+	</label>
+</relationship>
+
+<relationship name="project.parameter_has_many_assay_parameter" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#3cb2dd"
+	 src-table="public.parameter"
+	 dst-table="public.assay_parameter"
+	 src-required="false" dst-required="false"/>
+
+<table name="print_bill">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="818.78" y="813.111"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.print_bill">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="nc_storage">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="979.56" y="738.778"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.nc_storage">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="confirm_goods">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1094.44" y="578"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.confirm_goods">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="vehicle_queue">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="952.67" y="371.222"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="start_time">
+		<type name="timestamp"/>
+	</column>
+	<column name="end_time">
+		<type name="timestamp"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.vehicle_queue">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_dispatche_vehicle" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="dispatche_vehicle_fk" index="1"/>
+	</customidxs>
+</table>
+
+<table name="res.partner">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1107.33" y="257.667"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="name">
+		<type name="char"/>
+	</column>
+	<column name="phone">
+		<type name="char"/>
+	</column>
+	<column name="identity_number">
+		<type name="char"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.&quot;res.partner&quot;">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<table name="sample">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="420.111" y="718.333"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.sample">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_dispatche_vehicle" index="1"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="dispatche_vehicle_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="sampling_has_many_assay" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#460363"
+	 src-table="public.sample"
+	 dst-table="public.assay"
+	 src-required="false" dst-required="false"/>
+
+<table name="vehicle_code">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="955.67" y="36"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="code">
+		<type name="char"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.vehicle_code">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_fleet.vehicle" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="fleet.vehicle_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="car_has_many_car_code" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a5a816"
+	 src-table="public.&quot;fleet.vehicle&quot;"
+	 dst-table="public.vehicle_code"
+	 src-required="false" dst-required="false"/>
+
+<table name="fleet.vehicle.model.brand">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="1452" y="146"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.&quot;fleet.vehicle.model.brand&quot;">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="fleet.vehicle.model.brand_has_many_fleet.vehicle.model" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#85ccfc"
+	 src-table="public.&quot;fleet.vehicle.model.brand&quot;"
+	 dst-table="public.&quot;fleet.vehicle.model&quot;"
+	 src-required="false" dst-required="false"/>
+
+<table name="dispatche_vehicle">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="441" y="457"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="state">
+		<type name="char"/>
+	</column>
+	<column name="estimate_vehicle_entry">
+		<type name="timestamp"/>
+	</column>
+	<column name="no">
+		<type name="char"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.dispatche_vehicle">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+
+	<customidxs object-type="column">
+		<object name="ID_fleet.vehicle" index="2"/>
+	</customidxs>
+
+	<customidxs object-type="constraint">
+		<object name="fleet.vehicle_fk" index="1"/>
+	</customidxs>
+</table>
+
+<relationship name="fleet.vehicle_has_many_dispatche_vehicle" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#6fcd64"
+	 src-table="public.&quot;fleet.vehicle&quot;"
+	 dst-table="public.dispatche_vehicle"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="res.partner_has_many_fleet.vehicle" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#89a68d"
+	 src-table="public.&quot;res.partner&quot;"
+	 dst-table="public.&quot;fleet.vehicle&quot;"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="many_nc_order_line_has_many_dispatche_vehicle_line" type="relnn"
+	 src-col-pattern="{sc}_{st}" dst-col-pattern="{sc}_{dt}"
+	 pk-pattern="{gt}_pk" uq-pattern="{gt}_uq"
+	 src-fk-pattern="{st}_fk" dst-fk-pattern="{dt}_fk"
+	 pk-col-pattern="id"
+	 custom-color="#212ca2"
+	 src-table="public.nc_order_line"
+	 dst-table="public.dispatche_vehicle"
+	 src-required="false" dst-required="false"
+	 table-name="many_nc_order_line_has_many_dispatche_vehicle_line">
+	<label ref-type="name-label">
+		<position x="30.844" y="1.71134"/>
+	</label>
+</relationship>
+
+<relationship name="dispatche_vehicle_line_has_many_sample" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#298f10"
+	 src-table="public.dispatche_vehicle"
+	 dst-table="public.sample"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="dispatche_vehicle_has_many_vehicle_queue" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#b3f074"
+	 src-table="public.dispatche_vehicle"
+	 dst-table="public.vehicle_queue"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="dispatche_vehicle_line_has_many_confirm_goods" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#754bc8"
+	 src-table="public.dispatche_vehicle"
+	 dst-table="public.confirm_goods"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="dispatche_vehicle_line_has_many_weigh" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#68f030"
+	 src-table="public.dispatche_vehicle"
+	 dst-table="public.weigh"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="dispatche_vehicle_line_has_many_nc_storage" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#811573"
+	 src-table="public.dispatche_vehicle"
+	 dst-table="public.nc_storage"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="dispatche_vehicle_line_has_many_print_bill" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#ff0000"
+	 src-table="public.dispatche_vehicle"
+	 dst-table="public.print_bill"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="dispatche_vehicle_line_has_many_pass_gate" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#a869c4"
+	 src-table="public.dispatche_vehicle"
+	 dst-table="public.pass_gate"
+	 src-required="false" dst-required="false"/>
+
+<table name="res.partner_cp">
+	<schema name="public"/>
+	<role name="postgres"/>
+	<position x="450.33" y="836.667"/>
+	<column name="ID" not-null="true">
+		<type name="smallint"/>
+	</column>
+	<column name="name">
+		<type name="char"/>
+	</column>
+	<column name="phone">
+		<type name="char"/>
+	</column>
+	<column name="identity_number">
+		<type name="char"/>
+	</column>
+	<constraint name="ID" type="pk-constr" table="public.&quot;res.partner_cp&quot;">
+		<columns names="ID" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<relationship name="sample_has_many_res.partner_cp" type="rel1n"
+	 src-col-pattern="{sc}_{st}"
+	 pk-pattern="{dt}_pk" uq-pattern="{dt}_uq"
+	 src-fk-pattern="{st}_fk"
+	 custom-color="#8af097"
+	 src-table="public.sample"
+	 dst-table="public.&quot;res.partner_cp&quot;"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

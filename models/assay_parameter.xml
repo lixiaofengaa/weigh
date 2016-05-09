@@ -34,24 +34,11 @@
                 </tree>
             </field>
         </record>
-        <record id="view_weigh_dispatche_vehicle_line_filter" model="ir.ui.view">
-            <field name="name">weigh.dispatche_vehicle line.filter</field>
-            <field name="model">weigh.dispatche_vehicle.line</field>
-            <field name="arch" type="xml">
-                <search>
-                    <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
-                    <filter name="confirmed" string="Confirmed" domain="[('state', '=', 'confirmed')]"/>
-                    <filter name="done" string="Done" domain="[('state', '=', 'done')]"/>
-               </search>
-            </field>
-        </record>
         <record id="action_weigh_dispatche_vehicle_line" model="ir.actions.act_window">
             <field name="name">weigh dispatche_vehicle line</field>
             <field name="res_model">weigh.dispatche_vehicle.line</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref="view_weigh_dispatche_vehicle_line_filter"/>
-            <field name="context">{'search_default_draft': 1}</field>
             <field name="help" type="html">
               <p><b>No dispatche_vehicle_line found!</b></p>
               <p>You should try others search criteria.</p>

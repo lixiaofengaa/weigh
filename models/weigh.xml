@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
-        <record id="view_weigh_print_bill_from" model="ir.ui.view">
-            <field name="name">weigh print_bill</field>
-            <field name="model">weigh.print_bill</field>
+        <record id="view_weigh_weigh_from" model="ir.ui.view">
+            <field name="name">weigh weigh</field>
+            <field name="model">weigh.weigh</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
@@ -18,22 +18,22 @@
                 </form>
             </field>
         </record>
-        <record id="view_weigh_print_bill_tree" model="ir.ui.view">
-            <field name="name">weigh.print_bill.tree</field>
-            <field name="model">weigh.print_bill</field>
+        <record id="view_weigh_weigh_tree" model="ir.ui.view">
+            <field name="name">weigh.weigh.tree</field>
+            <field name="model">weigh.weigh</field>
             <field name="arch" type="xml">
                 <tree>
                     <field name="dispatche_vehicle_id"/>
                 </tree>
             </field>
         </record>
-        <record id="action_weigh_print_bill" model="ir.actions.act_window">
-            <field name="name">weigh print_bill</field>
-            <field name="res_model">weigh.print_bill</field>
+        <record id="action_weigh_weigh" model="ir.actions.act_window">
+            <field name="name">weigh weigh</field>
+            <field name="res_model">weigh.weigh</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="help" type="html">
-              <p><b>No print_bill found!</b></p>
+              <p><b>No weigh found!</b></p>
               <p>You should try others search criteria.</p>
             </field>
         </record>

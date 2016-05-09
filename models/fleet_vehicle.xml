@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_fleet_vehicle_weigh" model="ir.ui.view">
+              <field name="name">fleet.vehicle.weigh.form</field>
+              <field name="model">fleet.vehicle</field>
+              <field name="inherit_id" ref="fleet.fleet_vehicle_form"/>
+              <field name="arch" type="xml">
+                <xpath expr="//field[@name='company_id']" position="after">
+                    <field name="tare"/>
+                    <field name="owner_id"/>
+                </xpath>
+              </field>
+          </record>
+    </data>
+</openerp>

@@ -15,4 +15,4 @@ class sample(models.Model):
                              string='Status', index=True, readonly=True, default='draft',
                              track_visibility='onchange', copy=False)
     dispatche_vehicle_id = fields.Many2one('weigh.dispatche_vehicle')
-    sampler = fields.Many2one('res.partner')
+    sampler_id = fields.Many2one('res.partner')

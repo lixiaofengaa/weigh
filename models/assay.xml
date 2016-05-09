@@ -1,19 +1,20 @@
 <?xml version="1.0"?>
 <openerp>
     <data>
-        <record id="view_weigh_dispatche_vehicle_line_from" model="ir.ui.view">
-            <field name="name">weigh dispatche_vehicle line form</field>
-            <field name="model">weigh.dispatche_vehicle.line</field>
+        <record id="view_weigh_assay_from" model="ir.ui.view">
+            <field name="name">weigh assay</field>
+            <field name="model">weigh.assay</field>
             <field name="arch" type="xml">
                 <form>
-                    <header>
-                        <field name="state" widget="statusbar" />
-                    </header>
                     <sheet>
                         <group col="2">
-                            <field name="dispatche_vehicle_line_no"/>
-                            <field name="nc_order_line_ids" widget="many2many_tags"/>
-                            <field name="fleet_vehicle_ids" widget="many2many_tags"/>
+                            <field name="sample_id"/>
+                            <field name="assay_parameter_ids">
+                                <tree>
+                                    <field name="parameter_id"/>
+                                    <field name="value"/>
+                                </tree>
+                            </field>
                         </group>
                     </sheet>
                     <div class="oe_chatter">
@@ -23,37 +24,23 @@
                 </form>
             </field>
         </record>
-        <record id="view_weigh_dispatche_vehicle_line_tree" model="ir.ui.view">
-            <field name="name">weigh.dispatche_vehicle line.tree</field>
-            <field name="model">weigh.dispatche_vehicle.line</field>
+        <record id="view_weigh_assay_tree" model="ir.ui.view">
+            <field name="name">weigh.assay.tree</field>
+            <field name="model">weigh.assay</field>
             <field name="arch" type="xml">
                 <tree>
-                    <field name="dispatche_vehicle_line_no"/>
-                    <field name="nc_order_line_ids"/>
-                    <field name="fleet_vehicle_ids"/>
+                    <field name="sample_id"/>
+                    <field name="assay_parameter_ids"/>
                 </tree>
             </field>
         </record>
-        <record id="view_weigh_dispatche_vehicle_line_filter" model="ir.ui.view">
-            <field name="name">weigh.dispatche_vehicle line.filter</field>
-            <field name="model">weigh.dispatche_vehicle.line</field>
-            <field name="arch" type="xml">
-                <search>
-                    <filter name="draft" string="Draft" domain="[('state', '=', 'draft')]"/>
-                    <filter name="confirmed" string="Confirmed" domain="[('state', '=', 'confirmed')]"/>
-                    <filter name="done" string="Done" domain="[('state', '=', 'done')]"/>
-               </search>
-            </field>
-        </record>
-        <record id="action_weigh_dispatche_vehicle_line" model="ir.actions.act_window">
-            <field name="name">weigh dispatche_vehicle line</field>
-            <field name="res_model">weigh.dispatche_vehicle.line</field>
+        <record id="action_weigh_assay" model="ir.actions.act_window">
+            <field name="name">weigh assay</field>
+            <field name="res_model">weigh.assay</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="search_view_id" ref="view_weigh_dispatche_vehicle_line_filter"/>
-            <field name="context">{'search_default_draft': 1}</field>
             <field name="help" type="html">
-              <p><b>No dispatche_vehicle_line found!</b></p>
+              <p><b>No assay found!</b></p>
               <p>You should try others search criteria.</p>
             </field>
         </record>

@@ -8,4 +8,5 @@ class assay(models.Model):
     _name = 'weigh.assay'
     _inherit = ['mail.thread']
 
-    sample_id = fields.Many2one('tender.sample')
+    sample_id = fields.Many2one('weigh.sample')
+    assay_parameter_ids = fields.One2many('weigh.assay_parameter', 'assay_id')

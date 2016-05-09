@@ -9,3 +9,5 @@ class vehicle_queue(models.Model):
     _inherit = ['mail.thread']
 
     dispatche_vehicle_id = fields.Many2one('weigh.dispatche_vehicle')
+    start_time = fields.Datetime()
+    end_time = fields.Datetime()

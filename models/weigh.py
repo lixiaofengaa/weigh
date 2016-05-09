@@ -5,7 +5,7 @@ from openerp.tools.translate import _
 
 
 class weigh(models.Model):
-    _name = 'weigh.weith'
+    _name = 'weigh.weigh'
     _inherit = ['mail.thread']
 
     dispatche_vehicle_id = fields.Many2one('weigh.dispatche_vehicle')

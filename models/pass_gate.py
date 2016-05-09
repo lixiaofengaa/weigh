@@ -10,4 +10,5 @@ class pass_gate(models.Model):
 
     dispatche_vehicle_id = fields.Many2one('weigh.dispatche_vehicle')
     gates_id = fields.Many2one('weigh.gates')
-    is_in = fields.Boolean()
+    in_out = fields.Selection([('in', 'in'),
+                               ('out', 'out')])

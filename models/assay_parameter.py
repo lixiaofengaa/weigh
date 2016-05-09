@@ -8,6 +8,6 @@ class assay_parameter(models.Model):
     _name = 'weigh.assay_parameter'
     _inherit = ['mail.thread']
 
-    assay = fields.Many2one('weigh.assay')
-    parameter = fields.Many2one('weigh.parameter')
+    assay_id = fields.Many2one('weigh.assay')
+    parameter_id = fields.Many2one('weigh.parameter')
     value = fields.Float()
