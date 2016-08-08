@@ -8,8 +8,8 @@ class nc_order_line(models.Model):
     _name = 'weigh.nc_order.line'
     _inherit = ['mail.thread']
 
-    nc_order_no = fields.Char()
-    consignee = fields.Char()
+    nc_order_no = fields.Char()#nc订单号
+    consignee = fields.Char()#
     consignor = fields.Char()
     place = fields.Char()
     price = fields.Float()
