@@ -8,4 +8,4 @@ class gates(models.Model):
     _name = 'weigh.gates'
     _inherit = ['mail.thread']
 
-    name = fields.Char()
+    name = fields.Char()#门岗

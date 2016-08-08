@@ -8,5 +8,5 @@ class fleet_vehicle(models.Model):
     _name = 'fleet.vehicle'
     _inherit = ['fleet.vehicle']
 
-    tare = fields.Float()
-    owner_id = fields.Many2one('res.partner')
+    tare = fields.Float()#皮重
+    owner_id = fields.Many2one('res.partner')#车队所有人

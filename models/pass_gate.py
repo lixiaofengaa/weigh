@@ -5,10 +5,10 @@ from openerp.tools.translate import _
 
 
 class pass_gate(models.Model):
-    _name = 'weigh.pass_gate'
+   _name = 'weigh.pass_gate'#通过门岗
     _inherit = ['mail.thread']
 
-    dispatche_vehicle_id = fields.Many2one('weigh.dispatche_vehicle')
-    gates_id = fields.Many2one('weigh.gates')
+    dispatche_vehicle_id = fields.Many2one('weigh.dispatche_vehicle')#派车单号
+    gates_id = fields.Many2one('weigh.gates')#门岗ID
     in_out = fields.Selection([('in', 'in'),
-                               ('out', 'out')])
+                               ('out', 'out')])#进/出门岗

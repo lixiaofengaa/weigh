@@ -8,5 +8,5 @@ class vehicle_code(models.Model):
     _name = 'weigh.vehicle_code'
     _inherit = ['mail.thread']
 
-    code = fields.Char()
-    fleet_vehicle_id = fields.Many2one('fleet.vehicle')
+    code = fields.Char()#车辆编码
+    fleet_vehicle_id = fields.Many2one('fleet.vehicle')#所属车队
